@@ -27,13 +27,4 @@ func main() {
 	enc := trackem.Encode(t)
 	turl := *baseURL + enc
 	log.Printf("%s\n", turl)
-	log.Printf("id: %s\n", t.Id)
-
-	log.Println("... and decoding")
-	dec, err := trackem.Decode(enc)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	log.Printf("decoded = %v", dec)
 }

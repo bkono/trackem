@@ -60,7 +60,7 @@ func GetEMReq(w http.ResponseWriter, r *http.Request) {
 
 		upd[":"+k] = v
 		updexp = updexp + k + " = :" + k
-		if i < len(upd) {
+		if i < len(av) {
 			updexp = updexp + ", "
 		}
 	}
@@ -72,33 +72,25 @@ func GetEMReq(w http.ResponseWriter, r *http.Request) {
 	log.Printf("upd = %v", upd)
 	log.Printf("updexp = %v", updexp)
 
-	// names := map[string]*string{
-	// "#id":      aws.String("id"),
-	// "#from":    aws.String("from"),
-	// "#to":      aws.String("to"),
-	// "#subject": aws.String("subject"),
-	// "#views":   aws.String("views"),
-	// }
-
 	key := map[string]*dynamodb.AttributeValue{
 		"id": {
 			S: &et.Id,
 		},
 	}
-	// vals := map[string]*dynamodb.AttributeValue{
-	// 	":views": {
-	// 		N: aws.String("1"),
-	// 	},
-	// 	":from": {
-	// 		S: aws.String(et.From),
-	// 	},
-	// 	":to": {
-	// 		S: aws.String(et.To),
-	// 	},
-	// 	":subject": {
-	// 		S: aws.String(et.Subject),
-	// 	},
-	// }
+	vals := map[string]*dynamodb.AttributeValue{
+		":views": {
+			N: aws.String("1"),
+		},
+		":from": {
+			S: aws.String(et.From),
+		},
+		":to": {
+			S: aws.String(et.To),
+		},
+		":subject": {
+			S: aws.String(et.Subject),
+		},
+	}
 
 	_, err = dyndb.UpdateItem(&dynamodb.UpdateItemInput{
 		TableName: aws.String(table),
