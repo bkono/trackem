@@ -2,10 +2,34 @@
 
 
 [[projects]]
+  name = "github.com/aws/aws-sdk-go"
+  packages = ["aws","aws/awserr","aws/awsutil","aws/client","aws/client/metadata","aws/corehandlers","aws/credentials","aws/credentials/ec2rolecreds","aws/credentials/endpointcreds","aws/credentials/stscreds","aws/defaults","aws/ec2metadata","aws/endpoints","aws/request","aws/session","aws/signer/v4","internal/shareddefaults","private/protocol","private/protocol/json/jsonutil","private/protocol/jsonrpc","private/protocol/query","private/protocol/query/queryutil","private/protocol/rest","private/protocol/xml/xmlutil","service/dynamodb","service/dynamodb/dynamodbattribute","service/sts"]
+  revision = "cbd6949bf5611b581f686f8fbacd7858c7464767"
+  version = "v1.10.45"
+
+[[projects]]
+  name = "github.com/go-ini/ini"
+  packages = ["."]
+  revision = "20b96f641a5ea98f2f8619ff4f3e061cff4833bd"
+  version = "v1.28.2"
+
+[[projects]]
   branch = "master"
   name = "github.com/golang/protobuf"
   packages = ["proto"]
   revision = "11b8df160996e00fd4b55cbaafb3d84ec6d50fa8"
+
+[[projects]]
+  name = "github.com/jmespath/go-jmespath"
+  packages = ["."]
+  revision = "3433f3ea46d9f8019119e7dd41274e112a2359a9"
+  version = "0.2.2"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/micro/protobuf"
+  packages = ["proto"]
+  revision = "36ff29e5e3283046fa873231d7e69fa8c3d342b5"
 
 [[projects]]
   branch = "master"
@@ -16,6 +40,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "db714a370eaaae86ebcf7ba20e46a4ab5a092bca4ae29b994ef61b785d34217f"
+  inputs-digest = "b00a33e1c810879a04fbf207be90a0d48cdd216187c50b2d105cb371fceb9aac"
   solver-name = "gps-cdcl"
   solver-version = 1

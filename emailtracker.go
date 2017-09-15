@@ -77,20 +77,6 @@ func GetEMReq(w http.ResponseWriter, r *http.Request) {
 			S: &et.Id,
 		},
 	}
-	vals := map[string]*dynamodb.AttributeValue{
-		":views": {
-			N: aws.String("1"),
-		},
-		":from": {
-			S: aws.String(et.From),
-		},
-		":to": {
-			S: aws.String(et.To),
-		},
-		":subject": {
-			S: aws.String(et.Subject),
-		},
-	}
 
 	_, err = dyndb.UpdateItem(&dynamodb.UpdateItemInput{
 		TableName: aws.String(table),

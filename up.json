@@ -1,3 +1,6 @@
 {
-  "build": "GOOS=linux GOARCH=adm64 go build -o server cmd/trackem/main.go"
+  "hooks": {
+    "build": "GOOS=linux GOARCH=amd64 go build -o server cmd/trackem/main.go",
+    "clean": "rm server"
+  }
 }
