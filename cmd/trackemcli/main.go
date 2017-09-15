@@ -1,14 +1,12 @@
 package main
 
 import (
-	"encoding/base64"
 	"flag"
 	"fmt"
 	"log"
 
+	"git.kono.sh/bkono/trackem"
 	pb "git.kono.sh/bkono/trackem/protos"
-	"github.com/golang/protobuf/proto"
-	"github.com/segmentio/ksuid"
 )
 
 var (
@@ -19,21 +17,23 @@ var (
 )
 
 func main() {
-	fmt.Println("Building tracking url...")
+	log.Println("Building tracking url...")
 	flag.Parse()
 	t := &pb.EmailTracker{
-		Id:      ksuid.New().String(),
 		To:      *to,
 		From:    *from,
 		Subject: *subject,
 	}
 
-	b, err := proto.Marshal(t)
+	enc := trackem.Encode(t)
+	turl := *baseURL + enc
+	fmt.Printf("%s", turl)
+
+	log.Println("... and decoding")
+	dec, err := trackem.Decode(enc)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	enc := base64.URLEncoding.EncodeToString(b)
-	turl := *baseURL + enc
-	fmt.Printf("%s", turl)
+	log.Printf("decoded = %v", dec)
 }
