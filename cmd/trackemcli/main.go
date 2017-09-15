@@ -2,7 +2,6 @@ package main
 
 import (
 	"flag"
-	"fmt"
 	"log"
 
 	"git.kono.sh/bkono/trackem"
@@ -20,14 +19,15 @@ func main() {
 	log.Println("Building tracking url...")
 	flag.Parse()
 	t := &pb.EmailTracker{
-		To:      *to,
-		From:    *from,
-		Subject: *subject,
+		ToAddrs:  *to,
+		FromAddr: *from,
+		Subject:  *subject,
 	}
 
 	enc := trackem.Encode(t)
 	turl := *baseURL + enc
-	fmt.Printf("%s", turl)
+	log.Printf("%s\n", turl)
+	log.Printf("id: %s\n", t.Id)
 
 	log.Println("... and decoding")
 	dec, err := trackem.Decode(enc)
