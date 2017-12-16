@@ -18,6 +18,7 @@ Coming soon. Flag help docs are accurate for now.
 - [x] Decode url query param in dynamodb
 - [ ] Move to one command, one main.go with `server` and `create` as args
 - [ ] Deploy on Up
+- [ ] Store timestamp of get + user agent, inbound ip, etc
 - [ ] Add dashboard, SES and/or SNS alerts
 - [ ] Consider additional AWS tech to dabble in
 
