@@ -19,6 +19,8 @@ Coming soon. Flag help docs are accurate for now.
 - [ ] Move to one command, one main.go with `server` and `create` as args
 - [ ] Deploy on Up
 - [ ] Store timestamp of get + user agent, inbound ip, etc
+- [ ] Only track specific user agents, avoid robots
+- [ ] Set a cookie (?) to prevent extra hits & not include sender
 - [ ] Add dashboard, SES and/or SNS alerts
 - [ ] Consider additional AWS tech to dabble in
 
